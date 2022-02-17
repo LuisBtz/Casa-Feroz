@@ -2,6 +2,7 @@ import React from "react"
 import { graphql } from "gatsby";
 import Layout from "../components/layout/layout";
 import AgeVerification from "../components/home/AgeVerification";
+import Hero from "../components/home/Hero";
 
 export const data = graphql`
   query {
@@ -12,15 +13,13 @@ export const data = graphql`
           gatsbyImageData(
             layout: FULL_WIDTH
             outputPixelDensities: 1.5
-            placeholder: DOMINANT_COLOR
+            placeholder: BLURRED
           )
         }
       }
       textoPrincipal
       title
-      textoSecundario {
-        _rawChildren
-      }
+      _rawTextoSecundario
     }
     sanitySettingsPage {
       iconoBlanco {
@@ -29,7 +28,7 @@ export const data = graphql`
           gatsbyImageData(
             layout: FULL_WIDTH
             outputPixelDensities: 1.5
-            placeholder: DOMINANT_COLOR
+            placeholder: BLURRED
           )
         }
       }
@@ -39,7 +38,7 @@ export const data = graphql`
           gatsbyImageData(
             layout: FULL_WIDTH
             outputPixelDensities: 1.5
-            placeholder: DOMINANT_COLOR
+            placeholder: BLURRED
           )
         }
       }
@@ -52,6 +51,7 @@ const IndexPage = ({data}) => {
   return(
     <Layout>
       <AgeVerification data={data} />
+      <Hero />
     </Layout>
   )
 }

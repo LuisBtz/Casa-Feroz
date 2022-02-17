@@ -41,5 +41,8 @@ export const Typography = createGlobalStyle`
 .title {
     font-family: var(--bold);
     font-size: 2vw;
+    @media (max-width: 680px) {
+        font-size: 25px;
+    }
 }
 `

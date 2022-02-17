@@ -15,6 +15,7 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
+    "@sanity/block-content-to-react": "^3.0.0",
     "babel-plugin-styled-components": "^2.0.2",
     "dotenv": "^16.0.0",
     "gatsby": "^4.7.2",

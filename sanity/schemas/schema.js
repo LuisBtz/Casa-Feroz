@@ -8,10 +8,13 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 
 import imageType from './objects/imageType'
 import blockModule from './objects/blockModule'
+import mezcal from './objects/mezcal'
+import carousel from './objects/carousel'
 
 
 import settingsPage from './documents/settingsPage'
 import ageVerification from './documents/ageVerification'
+import homePage from './documents/homePage'
 
 
 export default createSchema({
@@ -23,8 +26,11 @@ export default createSchema({
 
     imageType,
     blockModule,
+    mezcal,
+    carousel,
 
     settingsPage,
     ageVerification,
+    homePage,
   ]),
 })

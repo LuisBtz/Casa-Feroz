@@ -22,5 +22,13 @@ export default () =>
             .documentId('ageVerification')
         ),
         S.divider(),
-        ...S.documentTypeListItems().filter(listItem => !['ageVerification', 'settingsPage'].includes(listItem.getId()))
+        S.listItem()
+        .title('Home Page')
+        .icon(() => '🏡')
+        .child(
+          S.document()
+            .schemaType('homePage')
+            .documentId('homePage')
+        ),
+        ...S.documentTypeListItems().filter(listItem => !['ageVerification', 'settingsPage', 'homePage'].includes(listItem.getId()))
     ])

@@ -24,6 +24,9 @@ export const GlobalStyle = createGlobalStyle`
         overflow-x: hidden;
         position: relative;
         -webkit-font-smoothing: antialiased;
+        @media (max-width: 680px) {
+          font-size: 12px;
+      }
     }
 
 h1 {

@@ -288,4 +288,14 @@ img {
 h1, h2, h3, h4 {
   font-weight: normal;
 }
+
+button {
+  background: none;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+a {
+  color: inherit;
+}
 `
