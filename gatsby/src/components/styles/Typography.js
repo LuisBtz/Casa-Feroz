@@ -37,12 +37,26 @@ export const Typography = createGlobalStyle`
     --regular: 'Figue', serif;
     --bold: 'Mabry Pro', sans-serif;
 }
+h2 {
+    font-size: 3vw;
+    margin-bottom: 40px;
+    @media (max-width: 680px) {
+          font-size: 1.5rem;
+      }
+}
+
+h1, h2, h3 {
+    font-family: var(--bold);
+}
 
 .title {
     font-family: var(--bold);
     font-size: 2vw;
     @media (max-width: 680px) {
         font-size: 25px;
+    }
+    @media (min-width: 1500px) {
+        font-size: 30px
     }
 }
 `

@@ -42,11 +42,13 @@ const [clickHam, setClickHam] = useState(false);
                 <li><Link to='/'>Nosotros</Link></li>
                 <li><Link to='/'>Mezcales</Link></li>
                 <li className="image">
-                    <GatsbyImage
-                        style={{ height: "100%", width: "100%" }}
-                        image={logoGetDataImage}
-                        alt={logoGetDataImageAlt}
-                    />
+                    <Link to='/'>
+                        <GatsbyImage
+                            style={{ height: "100%", width: "100%" }}
+                            image={logoGetDataImage}
+                            alt={logoGetDataImageAlt}
+                        />
+                    </Link>
                 </li>
                 <li><Link to='/'>Mixologia</Link></li>
                 <li><Link to='/'>Encuentranos</Link></li>
@@ -62,10 +64,17 @@ margin: 20px auto;
 position: absolute;
 top: 0;
 left: 0;
+z-index: 1;
     ul.links {
+        width: 80%;
+        margin: 0 auto;
         display: flex;
-        justify-content: center;
-        @media (max-width: 680px) {
+        justify-content: space-between;
+        @media (max-width: 900px) {
+                    width: 95%;
+                    padding: 0 20px;
+                }
+        @media (max-width: 800px) {
             overflow: hidden;
             height: 80px;
             justify-content: flex-start;
@@ -97,40 +106,43 @@ left: 0;
         }
         li {
             align-self: center;
-            
+            padding-left: 10px;
+                padding-right: 10px;
             a {
                 font-family: var(--bold);
                 text-transform: uppercase;
                 display: inline-block;
-                margin-left: 50px;
-                margin-right: 50px;
                 &:hover {
                     border-bottom: solid 1px black;
                 }
-                @media (max-width: 900px) {
-                    margin-left: 20px;
-                    margin-right: 20px;
-                }
+                
             }
         }
         li.image {
-            width: 250px;
-            
+            a {
+                width: 250px;
+                @media (max-width: 800px) {
+                    width: 200px;
+                }
+                &:hover {
+                    border: none;
+                }
+            }
         }
     }
     ul.show {
-        @media (max-width: 680px) {
+        @media (max-width: 800px) {
             height: 280px;
         }
     }
     .ham {
         position: absolute;
         top: 20px;
-        right: 50px;
+        right: 30px;
         width: 30px;
         height: 30px;
         display: none;
-        @media (max-width: 680px) {
+        @media (max-width: 800px) {
             display: block;
         }
         .line {

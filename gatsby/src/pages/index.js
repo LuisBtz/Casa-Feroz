@@ -3,6 +3,7 @@ import { graphql } from "gatsby";
 import Layout from "../components/layout/layout";
 import AgeVerification from "../components/home/AgeVerification";
 import Hero from "../components/home/Hero";
+import Description from "../components/home/Description";
 
 export const data = graphql`
   query {
@@ -43,6 +44,31 @@ export const data = graphql`
         }
       }
     }
+    sanityHomePage {
+      principalImagenDeFondo {
+        alt
+        asset {
+          gatsbyImageData(
+            layout: FULL_WIDTH
+            outputPixelDensities: 1.5
+            placeholder: BLURRED
+          )
+        }
+      }
+      principalTexto
+      descripcionImagen {
+      alt
+      asset {
+        gatsbyImageData(
+          layout: FULL_WIDTH
+          outputPixelDensities: 1.5
+          placeholder: DOMINANT_COLOR
+        )
+      }
+    }
+    descripcionTitulo
+    _rawDescripcionTexto
+    }
   }
 `;
 
@@ -51,7 +77,8 @@ const IndexPage = ({data}) => {
   return(
     <Layout>
       <AgeVerification data={data} />
-      <Hero />
+      <Hero data={data} />
+      <Description data={data} /> 
     </Layout>
   )
 }

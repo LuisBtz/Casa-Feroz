@@ -80,6 +80,12 @@ const AgeVerification = ({data}) => {
 const AgeVerificationContainer = styled.section`
     width: 100vw;
     height: 100vh;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
     .overlay {
         position: absolute;
         z-index: 9;
@@ -93,6 +99,7 @@ const AgeVerificationContainer = styled.section`
         @media (max-width: 680px) {
             width: 85%;
         }
+        
         .icon {
             width: 100px;
             margin: 20px auto;
@@ -112,6 +119,9 @@ const AgeVerificationContainer = styled.section`
                 text-transform: uppercase;
                 @media (max-width: 680px) {
                     font-size: 25px;
+                }
+                @media (min-width: 1500px) {
+                    font-size: 30px
                 }
             }
         }
