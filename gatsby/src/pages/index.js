@@ -5,6 +5,7 @@ import AgeVerification from "../components/home/AgeVerification";
 import Hero from "../components/home/Hero";
 import Description from "../components/home/Description";
 import Mezcales from '../components/home/Mezcales';
+import Follow from "../components/home/Follow";
 
 export const data = graphql`
   query {
@@ -99,6 +100,20 @@ export const data = graphql`
           }
         }
       }
+      #Follow
+      followTitle
+      followUrl
+      followImagenes {
+        alt
+        _key
+        asset {
+          gatsbyImageData(
+            layout: FULL_WIDTH
+            outputPixelDensities: 1.5
+            placeholder: BLURRED
+          )
+        }
+      }
     }
   }
 `;
@@ -111,6 +126,7 @@ const IndexPage = ({data}) => {
       <Hero data={data} />
       <Description data={data} /> 
       <Mezcales data={data} />
+      <Follow data={data} />
     </Layout>
   )
 }

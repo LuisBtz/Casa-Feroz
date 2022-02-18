@@ -29,7 +29,7 @@ const Mezcales = ({data}) => {
                 {data.sanityHomePage.mezcales.map(({ _key, mezcalName, mezcalUrl, mezcalImage}) => {
                     const getDataImage = getImage(mezcalImage.asset);
                     return (
-                        <div className='mezcal' key={_key} data-aos="fade-up" data-aos-delay="800" data-aos-duration="800">
+                        <div className='mezcal' key={_key}>
                             <GatsbyImage
                                 style={{ height: "100%", width: "100%" }}
                                 image={getDataImage}
@@ -46,6 +46,7 @@ const Mezcales = ({data}) => {
 
 const MezcalesContainer = styled.section`
     position: relative;
+    padding-bottom: 100px;
     .image {
         position: absolute;
         top: 0;
