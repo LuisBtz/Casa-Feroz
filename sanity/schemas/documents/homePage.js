@@ -76,6 +76,12 @@ export default {
             group: 'mezcales'
         },
         {
+            name: 'mezcalesImagenFondoo',
+            title: 'Imagen de fondo Mezcales',
+            type: 'imageType',
+            group: 'mezcales'
+        },
+        {
             name: 'mezcales',
             title: 'Mezcales',
             group: 'mezcales',

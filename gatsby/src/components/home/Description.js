@@ -27,7 +27,7 @@ const Description = ({data}) => {
                 <BlockContent
                     blocks={data.sanityHomePage._rawDescripcionTexto}
                 />
-                <Link className="button">NUESTRA HISTORIA →</Link>
+                <Link className="button" to='/'>NUESTRA HISTORIA →</Link>
             </div>
         </DescriptionContainer>
     )
@@ -65,6 +65,7 @@ const DescriptionContainer = styled.section`
         }
         h2 {
             text-align: center;
+            margin-bottom: 40px;
         }
         .button {
             border: solid 3px var(--blue);

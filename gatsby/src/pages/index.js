@@ -4,6 +4,7 @@ import Layout from "../components/layout/layout";
 import AgeVerification from "../components/home/AgeVerification";
 import Hero from "../components/home/Hero";
 import Description from "../components/home/Description";
+import Mezcales from '../components/home/Mezcales';
 
 export const data = graphql`
   query {
@@ -45,6 +46,7 @@ export const data = graphql`
       }
     }
     sanityHomePage {
+      #hero
       principalImagenDeFondo {
         alt
         asset {
@@ -56,6 +58,7 @@ export const data = graphql`
         }
       }
       principalTexto
+      #description
       descripcionImagen {
       alt
       asset {
@@ -68,6 +71,34 @@ export const data = graphql`
     }
     descripcionTitulo
     _rawDescripcionTexto
+    #mezcales
+    mezcalesTitulo
+    mezcalesSubtitulo
+    mezcalesImagenFondoo {
+      alt
+      asset {
+        gatsbyImageData(
+          layout: FULL_WIDTH
+          outputPixelDensities: 1.5
+          placeholder: BLURRED
+        )
+      }
+    }
+    mezcales {
+      mezcalName
+      mezcalUrl
+      _key
+      mezcalImage {
+          alt
+          asset {
+            gatsbyImageData(
+              layout: FULL_WIDTH
+              outputPixelDensities: 1.5
+              placeholder: BLURRED
+            )
+          }
+        }
+      }
     }
   }
 `;
@@ -79,6 +110,7 @@ const IndexPage = ({data}) => {
       <AgeVerification data={data} />
       <Hero data={data} />
       <Description data={data} /> 
+      <Mezcales data={data} />
     </Layout>
   )
 }

@@ -39,7 +39,6 @@ export const Typography = createGlobalStyle`
 }
 h2 {
     font-size: 3vw;
-    margin-bottom: 40px;
     @media (max-width: 680px) {
           font-size: 1.5rem;
       }
