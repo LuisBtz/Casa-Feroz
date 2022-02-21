@@ -21,6 +21,14 @@ export default () =>
             .schemaType('ageVerification')
             .documentId('ageVerification')
         ),
+        S.listItem()
+        .title('Carrusel')
+        .icon(() => '🌵')
+        .child(
+          S.document()
+            .schemaType('carrusel')
+            .documentId('carrusel')
+        ),
         S.divider(),
         S.listItem()
         .title('Home Page')
@@ -30,5 +38,5 @@ export default () =>
             .schemaType('homePage')
             .documentId('homePage')
         ),
-        ...S.documentTypeListItems().filter(listItem => !['ageVerification', 'settingsPage', 'homePage'].includes(listItem.getId()))
+        ...S.documentTypeListItems().filter(listItem => !['ageVerification', 'settingsPage', 'carrusel', 'homePage'].includes(listItem.getId()))
     ])

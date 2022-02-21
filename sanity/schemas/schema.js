@@ -12,6 +12,7 @@ import mezcal from './objects/mezcal'
 import carousel from './objects/carousel'
 
 
+import carrusel from './documents/carrusel'
 import settingsPage from './documents/settingsPage'
 import ageVerification from './documents/ageVerification'
 import homePage from './documents/homePage'
@@ -29,6 +30,7 @@ export default createSchema({
     mezcal,
     carousel,
 
+    carrusel,
     settingsPage,
     ageVerification,
     homePage,
