@@ -7,6 +7,7 @@ import Description from "../components/home/Description";
 import Mezcales from '../components/home/Mezcales';
 import Follow from "../components/home/Follow";
 import SliderMezcal from "../components/layout/sliderMezcal";
+import Newsletter from "../components/layout/newsletter";
 
 export const data = graphql`
   query {
@@ -129,6 +130,7 @@ const IndexPage = ({data}) => {
       <Mezcales data={data} />
       <Follow data={data} />
       <SliderMezcal />
+      <Newsletter />
     </Layout>
   )
 }

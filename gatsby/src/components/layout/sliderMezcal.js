@@ -66,6 +66,11 @@ query {
         speed: 500,
         nextArrow: <SampleNextArrow />,
         prevArrow: <SamplePrevArrow />,
+        customPaging: function(i) {
+          return (
+              <button><span>{i + 1}.</span></button>
+          );
+        },
       };
 
 
@@ -85,7 +90,6 @@ query {
                     className='slide'
                 >
                     <GatsbyImage
-                        style={{ height: "100%", width: "100%" }}
                         image={bgGetDataImage}
                         alt={bgGetDataImageAlt}
                     />
@@ -120,6 +124,16 @@ const Container = styled.section`
         h3 {
             font-size: 1.5vw;
         }
+        @media (max-width: 862px) {
+          top: 20px;
+          width: 90%;
+          h2 {
+            font-size: 2rem;
+          }
+          h3 {
+            font-size: .85rem;
+          }
+        }
     }
 `
 
@@ -134,14 +148,23 @@ const SliderContainer = styled(Slider)`
     transform: translateY(-50%);
     img {
         width: 25px;
+        @media (max-width: 730px) {
+          width: 15px;
+        }
     }
 }
 .slick-next {
     right: 20px;
+    @media (max-width: 730px) {
+      right: 10px;
+    }
   }
 
 .slick-prev {
     left: 20px;
+    @media (max-width: 730px) {
+      left: 10px;
+    }
 }
 
 .slick-dots {
@@ -156,6 +179,12 @@ const SliderContainer = styled(Slider)`
     margin: 0 auto;
     left: 50%;
     transform: translateX(-50%);
+    @media (max-width: 862px) {
+      bottom: 30px;
+    }
+    @media (max-width: 730px) {
+      width: 80%;
+    }
 }
 
 .slick-dots li button:before {
@@ -173,6 +202,15 @@ const SliderContainer = styled(Slider)`
     border: solid 2px var(--beige);
     width: 10px;
     height: 10px;
+}
+
+.slick-dots li button span {
+  position: absolute;
+  font-size: 15px;
+  color: var(--beige);
+  left: 3px;
+  top: -15px;
+  font-family: var(--bold);
 }
 
 .slick-dots li.slick-active button {
@@ -197,6 +235,15 @@ position: relative;
     p {
         text-transform: uppercase;
     }
+    @media (max-width: 730px) {
+      padding: 20px 20px;
+    }
+}
+@media (max-width: 730px) {
+  height: 550px;
+  .texto {
+    width: 80%;
+  }
 }
 `;
 
