@@ -7,13 +7,17 @@ export default {
     fields: [
         {
             name: 'title',
-            title: ' Site Title',
+            title: ' Carrusel Title',
+            type: 'string',
+        },
+        {
+            name: 'carouselSubtitle',
+            title: 'Subtítulo Carrusel',
             type: 'string',
         },
         {
             name: 'carousel',
             title: 'Carrusel',
-            group: 'carousel',
             type: 'array',
             of: [
                 {type: 'carousel'}

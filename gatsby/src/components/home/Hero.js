@@ -40,7 +40,7 @@ const HeroContainer = styled.section`
             display: block;
             width: 100%;
             font-size: 7vw;
-            color: white;
+            color: var(--beige);
             text-align: center;
             @media (max-width: 680px){
                 font-size: 2rem;

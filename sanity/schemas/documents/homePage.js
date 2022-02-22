@@ -20,11 +20,7 @@ export default {
         {
           name: 'unete',
           title: 'Únete',
-        },
-        {
-          name: 'carousel',
-          title: 'Carrusel',
-        },
+        }
         
       ],
     fields: [
@@ -112,27 +108,7 @@ export default {
             of: [
                 {type: 'imageType'}
             ],
-        },
-        {
-            name: 'carouselTitle',
-            title: 'Título Carrusel',
-            type: 'string',
-            group: 'carousel'
-        },
-        {
-            name: 'carouselSubtitle',
-            title: 'Subtítulo Carrusel',
-            type: 'string',
-            group: 'carousel'
-        },
-        {
-            name: 'carousel',
-            title: 'Carrusel',
-            group: 'carousel',
-            type: 'array',
-            of: [
-                {type: 'carousel'}
-            ]
         }
+
     ],
 }

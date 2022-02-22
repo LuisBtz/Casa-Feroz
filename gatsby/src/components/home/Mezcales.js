@@ -57,7 +57,7 @@ const MezcalesContainer = styled.section`
     }
     .text {
         text-align: center;
-        color: white;
+        color: var(--beige);
         padding-top: 50px;
         padding-bottom: 50px;
         h2 {

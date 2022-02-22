@@ -36,7 +36,7 @@ const Follow = ({data}) => {
 
 const FollowContainer = styled.section`
     background-color: var(--black);
-    color: white;
+    color: var(--beige);
     padding-top: 50px;
     padding-bottom: 50px;
     height: calc(1020px + 100px);
