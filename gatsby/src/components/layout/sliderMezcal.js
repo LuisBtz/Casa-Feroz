@@ -90,6 +90,7 @@ query {
                     className='slide'
                 >
                     <GatsbyImage
+                        style={{ height: "100%", width: "100%" }}
                         image={bgGetDataImage}
                         alt={bgGetDataImageAlt}
                     />
@@ -221,6 +222,7 @@ const SliderContainer = styled(Slider)`
 
 const Slide = styled.div`
 position: relative;
+height: auto;
 .texto {
     position: absolute;
     top: 50%;
