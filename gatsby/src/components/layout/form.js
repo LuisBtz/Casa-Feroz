@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import addToMailchimp from "gatsby-plugin-mailchimp"
+import Parser from 'html-react-parser';
 
 
 // markup
@@ -67,7 +68,7 @@ class Form extends React.Component {
 
 <FormContainer>
               <h2>SE PARTE DE CASA FEROZ</h2>
-              <p>{this.state.message}</p>
+              <p>{Parser(this.state.message)}</p>
               <form className="subscribe" onSubmit={this.handleSubmit}>
                 <input 
                     type="text"
@@ -115,6 +116,12 @@ class Form extends React.Component {
 const FormContainer = styled.div`
   margin-top: 50px;
   color: var(--beige);
+  a {
+    font-family: var(--bold);
+    text-decoration: underline;
+    display: block;
+    text-transform: uppercase;
+  }
   h2 {
     margin-bottom: 10px;
   }
