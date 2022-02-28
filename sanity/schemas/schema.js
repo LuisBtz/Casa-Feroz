@@ -11,6 +11,7 @@ import blockModule from './objects/blockModule'
 import mezcal from './objects/mezcal'
 import carousel from './objects/carousel'
 import linkFooter from './objects/linkFooter'
+import socialLink from './objects/socialLink'
 
 
 import carrusel from './documents/carrusel'
@@ -31,6 +32,7 @@ export default createSchema({
     mezcal,
     carousel,
     linkFooter,
+    socialLink,
 
     carrusel,
     settingsPage,

@@ -58,5 +58,32 @@ export default {
                 {type: 'linkFooter'}
             ]
         },
+        {
+            name: 'textoAdvertencia',
+            title: 'Texto Advertencia',
+            type: 'string',
+            group: 'footer',
+        },
+        {
+            name: 'siguenosTexto',
+            title: 'Texto Síguenos',
+            type: 'string',
+            group: 'footer',
+        },
+        {
+            name: 'redesSociales',
+            title: 'Redes Sociales',
+            type: 'array',
+            group: 'footer',
+            of: [
+                {type: 'socialLink'}
+            ]
+        },
+        {
+            name: 'mail',
+            title: 'Mail',
+            type: 'string',
+            group: 'footer',
+        },
     ],
 }
