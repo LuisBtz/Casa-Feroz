@@ -10,6 +10,7 @@ import imageType from './objects/imageType'
 import blockModule from './objects/blockModule'
 import mezcal from './objects/mezcal'
 import carousel from './objects/carousel'
+import linkFooter from './objects/linkFooter'
 
 
 import carrusel from './documents/carrusel'
@@ -29,6 +30,7 @@ export default createSchema({
     blockModule,
     mezcal,
     carousel,
+    linkFooter,
 
     carrusel,
     settingsPage,
