@@ -6,7 +6,7 @@ export default () =>
     .title('Pages')
     .items([
         S.listItem()
-          .title('Settings')
+          .title('Ajustes')
           .icon(() => '⚙️')
           .child(
             S.document()
@@ -14,7 +14,7 @@ export default () =>
               .documentId('settingsPage')
         ),
         S.listItem()
-        .title('Age Verification')
+        .title('Verificación de edad')
         .icon(() => '🔍')
         .child(
           S.document()
@@ -31,12 +31,20 @@ export default () =>
         ),
         S.divider(),
         S.listItem()
-        .title('Home Page')
+        .title('Inicio')
         .icon(() => '🏡')
         .child(
           S.document()
             .schemaType('homePage')
             .documentId('homePage')
         ),
-        ...S.documentTypeListItems().filter(listItem => !['ageVerification', 'settingsPage', 'carrusel', 'homePage'].includes(listItem.getId()))
+        S.listItem()
+        .title('Nosotros')
+        .icon(() => '📝')
+        .child(
+          S.document()
+            .schemaType('aboutPage')
+            .documentId('aboutPage')
+        ),
+        ...S.documentTypeListItems().filter(listItem => !['ageVerification', 'settingsPage', 'carrusel', 'homePage', 'aboutPage'].includes(listItem.getId()))
     ])

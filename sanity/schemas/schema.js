@@ -18,6 +18,7 @@ import carrusel from './documents/carrusel'
 import settingsPage from './documents/settingsPage'
 import ageVerification from './documents/ageVerification'
 import homePage from './documents/homePage'
+import aboutPage from './documents/aboutPage'
 
 
 export default createSchema({
@@ -38,5 +39,6 @@ export default createSchema({
     settingsPage,
     ageVerification,
     homePage,
+    aboutPage,
   ]),
 })
