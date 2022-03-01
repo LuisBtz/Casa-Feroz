@@ -104,6 +104,7 @@ const GetLogoDataImageAlt = data.sanitySettingsPage.logoBlanco2.alt
 const FooterContainer = styled.footer`
     background-color: var(--black);
     color: var(--white);
+    display: flex;
 `
 
 export default Footer
