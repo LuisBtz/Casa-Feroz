@@ -39,7 +39,7 @@ const [clickHam, setClickHam] = useState(false);
                 <div className="line"></div>
             </button>
             <ul className={clickHam ? 'links show' : 'links'}>
-                <li><Link to='/'>Nosotros</Link></li>
+                <li><Link to='nosotros'>Nosotros</Link></li>
                 <li><Link to='/'>Mezcales</Link></li>
                 <li className="image">
                     <Link to='/'>
