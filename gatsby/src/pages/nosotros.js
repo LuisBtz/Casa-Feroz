@@ -2,6 +2,7 @@ import React from "react"
 import { graphql } from "gatsby";
 import Layout from "../components/layout/layout";
 import Hero from "../components/nosotros/Hero";
+import Iconos from "../components/nosotros/Iconos";
 
 export const data = graphql`
   query {
@@ -70,7 +71,7 @@ const IndexPage = ({data}) => {
   return(
     <Layout>
       <Hero data={data} />
-
+      <Iconos data={data} />
     </Layout>
   )
 }

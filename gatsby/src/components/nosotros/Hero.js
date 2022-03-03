@@ -37,12 +37,32 @@ const HeroContainer = styled.section`
         position: absolute;
         top: 50%;
         left: 50%;
+        background-color: var(--beige);
         transform: translate(-50%, -50%);
+        padding: 50px 30px;
+        border: solid 5px var(--blue);
+        width: 650px;
+        @media (max-width: 680px) {
+            width: 95%;
+            top: 120px;
+            left: 50%;
+            transform: translateX(-50%) !important;
+            transform: translateY(0);
+        }
+        p {
+            padding: 5px 0;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            line-height: 1.4;
+        }
+        h3 {
+            font-size: 2rem;
+            text-align: center;
+        }
         h1 {
             display: block;
             width: 100%;
             font-size: 7vw;
-            color: var(--beige);
             text-align: center;
             @media (max-width: 680px){
                 font-size: 2rem;

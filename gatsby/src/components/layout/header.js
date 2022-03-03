@@ -33,15 +33,32 @@ const [clickHam, setClickHam] = useState(false);
 
     return(
         <HeroContainer>
-            <button className={clickHam ? 'ham clicked' : 'ham'} onClick={() => setClickHam(!clickHam)}>
-                <div className="line"></div>
-                <div className="line"></div>
-                <div className="line"></div>
-            </button>
-            <ul className={clickHam ? 'links show' : 'links'}>
-                <li><Link to='nosotros'>Nosotros</Link></li>
-                <li><Link to='/'>Mezcales</Link></li>
-                <li className="image">
+            <div className="desk">
+                <ul className='links'>
+                    <li><Link to='nosotros'>Nosotros</Link></li>
+                    <li><Link to='/'>Mezcales</Link></li>
+                    <li className="image">
+                        <Link to='/'>
+                            <GatsbyImage
+                                style={{ height: "100%", width: "100%" }}
+                                image={logoGetDataImage}
+                                alt={logoGetDataImageAlt}
+                            />
+                        </Link>
+                    </li>
+                    <li><Link to='/'>Mixologia</Link></li>
+                    <li><Link to='/'>Encuentranos</Link></li>
+                </ul>
+            </div>
+            
+
+            <div className="movil">
+                <button className={clickHam ? 'ham clicked' : 'ham'} onClick={() => setClickHam(!clickHam)}>
+                    <div className="line"></div>
+                    <div className="line"></div>
+                    <div className="line"></div>
+                </button>
+                <div className="image">
                     <Link to='/'>
                         <GatsbyImage
                             style={{ height: "100%", width: "100%" }}
@@ -49,10 +66,14 @@ const [clickHam, setClickHam] = useState(false);
                             alt={logoGetDataImageAlt}
                         />
                     </Link>
-                </li>
-                <li><Link to='/'>Mixologia</Link></li>
-                <li><Link to='/'>Encuentranos</Link></li>
-            </ul>
+                </div>
+                <ul className={clickHam ? 'links show' : 'links'} onClick={() => setClickHam(!clickHam)}>
+                    <li><Link to='/nosotros'>Nosotros</Link></li>
+                    <li><Link to='/'>Mezcales</Link></li>
+                    <li><Link to='/'>Mixologia</Link></li>
+                    <li><Link to='/'>Encuentranos</Link></li>
+                </ul>
+            </div>
 
         </HeroContainer>
     )
@@ -65,6 +86,13 @@ position: absolute;
 top: 0;
 left: 0;
 z-index: 1;
+@media (max-width: 800px) {
+    margin-top: 0;
+}
+.desk {
+    @media (max-width: 800px) {
+            display: none;
+        }
     ul.links {
         width: 80%;
         margin: 0 auto;
@@ -74,36 +102,6 @@ z-index: 1;
                     width: 95%;
                     padding: 0 20px;
                 }
-        @media (max-width: 800px) {
-            overflow: hidden;
-            height: 80px;
-            justify-content: flex-start;
-            flex-direction: column;
-            transition: all ease-in-out 350ms;
-            li {
-                a {
-                    font-size: 1.2rem;
-                    margin-top: 10px;
-                    margin-bottom: 10px;
-                }
-                &:nth-child(1) {
-                order: 2;
-                }
-                &:nth-child(2) {
-                    order: 3;
-                }
-                &:nth-child(3) {
-                    order: 1;
-                    margin-bottom: 30px;
-                }
-                &:nth-child(4) {
-                    order: 4;
-                }
-                &:nth-child(5) {
-                    order: 5;
-                }
-            }
-        }
         li {
             align-self: center;
             padding-left: 10px;
@@ -121,54 +119,86 @@ z-index: 1;
         li.image {
             a {
                 width: 250px;
-                @media (max-width: 800px) {
-                    width: 200px;
-                }
                 &:hover {
                     border: none;
                 }
             }
         }
     }
-    ul.show {
-        @media (max-width: 800px) {
-            height: 280px;
+
+}
+.movil {
+    display: none;
+    @media (max-width: 800px) {
+            display: block;
         }
+    .image {
+        width: 200px;
+        position: absolute;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 2;
+    }
+    .links {
+        height: 100vh;
+        position: absolute;
+        top: 0;
+        right: -100%;
+        background-color: var(--beige);
+        width: 85%;
+        padding-top: 100px;
+        padding-right: 30px;
+        padding-bottom: 100px;
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+        justify-content: space-around;
+        box-sizing: border-box;
+        transition: right ease-in-out 350ms;
+        border-left: solid 5px var(--blue);
+        a {
+            font-size: 2rem;
+            font-family: var(--bold);
+        }
+    }
+    .show {
+        right: 0;
     }
     .ham {
         position: absolute;
-        top: 20px;
+        top: 30px;
         right: 30px;
         width: 30px;
         height: 30px;
-        display: none;
-        @media (max-width: 800px) {
-            display: block;
-        }
+        z-index: 2;
         .line {
             position: relative;
-            height: 1px;
+            height: 2px;
             width: 100%;
             background-color: var(--black);
             margin-bottom: 10px;
             transition: all 200ms ease-in-out;
+            
         }
     }
     .clicked {
         .line {
             &:nth-child(1){
                 transform: rotate(45deg);
-                top: 5px;
+                top: 6px;
             }
             &:nth-child(2){
                 display: none;
             }
             &:nth-child(3){
                 transform: rotate(-45deg);
-                bottom: 5px;
+                bottom: 6px;
             }
         }
     }
+}
+    
 `
 
 export default Header
