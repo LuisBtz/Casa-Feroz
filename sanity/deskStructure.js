@@ -32,7 +32,7 @@ export default () =>
         S.divider(),
         S.listItem()
         .title('Inicio')
-        .icon(() => '🏡')
+        .icon(() => '🍾')
         .child(
           S.document()
             .schemaType('homePage')
@@ -46,5 +46,5 @@ export default () =>
             .schemaType('aboutPage')
             .documentId('aboutPage')
         ),
-        ...S.documentTypeListItems().filter(listItem => !['ageVerification', 'settingsPage', 'carrusel', 'homePage', 'aboutPage'].includes(listItem.getId()))
+        ...S.documentTypeListItems().filter(listItem => !['ageVerification', 'settingsPage', 'carrusel', 'homePage', 'aboutPage' ].includes(listItem.getId()))
     ])

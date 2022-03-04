@@ -19,6 +19,7 @@ import settingsPage from './documents/settingsPage'
 import ageVerification from './documents/ageVerification'
 import homePage from './documents/homePage'
 import aboutPage from './documents/aboutPage'
+import mezcalesPage from './documents/mezcalesPage'
 
 
 export default createSchema({
@@ -40,5 +41,6 @@ export default createSchema({
     ageVerification,
     homePage,
     aboutPage,
+    mezcalesPage,
   ]),
 })
