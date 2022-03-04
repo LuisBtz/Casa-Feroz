@@ -3,6 +3,9 @@ import { graphql } from "gatsby";
 import Layout from "../components/layout/layout";
 import Hero from "../components/nosotros/Hero";
 import Iconos from "../components/nosotros/Iconos";
+import Description from "../components/nosotros/Descripcion";
+import SliderMezcal from "../components/layout/sliderMezcal";
+import Newsletter from "../components/layout/newsletter";
 
 export const data = graphql`
   query {
@@ -72,6 +75,9 @@ const IndexPage = ({data}) => {
     <Layout>
       <Hero data={data} />
       <Iconos data={data} />
+      <Description data={data} />
+      <SliderMezcal />
+      <Newsletter />
     </Layout>
   )
 }

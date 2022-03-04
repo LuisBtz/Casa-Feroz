@@ -34,20 +34,31 @@ const Iconos = ({data}) => {
 
 const IconosContainer = styled.section`
 position: relative;
+display: flex;
+justify-content: center;
+align-content: center;
+height: 100%;
 .iconos {
+    align-self: center;
     position: absolute;
-    top: 50%;
     z-index: 1;
-    transform: translateY(-50%);
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    grid-gap: 120px;
     justify-content: center;
+    align-items: center;
     width: 80%;
     left: 50%;
     transform: translateX(-50%);
     margin: 0 auto;
+    @media (max-width: 800px) {
+        grid-gap: 30px;
+        width: 90%;
+    }
     .icon {
-        width: 250px;
+        align-self: center;
+        width: 100%;
+        margin: 0 auto;
     }
 }
 
