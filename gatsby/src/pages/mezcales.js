@@ -1,5 +1,5 @@
+import React from 'react'
 import { graphql, Link } from "gatsby";
-import React from "react";
 import Layout from "../components/layout/layout";
 import styled from "styled-components";
 import Hero from "../components/mezcales/Hero";
@@ -7,18 +7,38 @@ import BlockContent from '@sanity/block-content-to-react';
 import SliderMezcal from "../components/layout/sliderMezcal";
 import Newsletter from "../components/layout/newsletter";
 
-// markup
-export default function SingleMezcalPage({ data: { mezcal, links } }) {
+
+export const data = graphql`
+  query {
+    allSanityMezcalesPage {
+        nodes {
+        title
+        slug {
+            current
+        }
+        _key
+        imageMezcal {
+            alt
+            asset {
+            gatsbyImageData(layout: FULL_WIDTH, outputPixelDensities: 1.5)
+            url
+            }
+        }
+        _rawTexto
+        }
+    }
+  }
+`;
 
 
-
-  return (
-    <Layout>
+const MezcalesPage = ({data}) => {
+    return(
+        <Layout>
         <Hero />
         <MezcalContainer id='mezcales'>
           <div className="iz">
             <ul className="links">
-              {links.nodes.map(({ _key, title, slug}) => {
+              {data.allSanityMezcalesPage.nodes.map(({ _key, title, slug}) => {
                   return (
                       <li className='mezcal' key={_key}>
                         <Link   activeStyle={{
@@ -31,20 +51,20 @@ export default function SingleMezcalPage({ data: { mezcal, links } }) {
               })}
             </ul>
             <div className="texto">
-              <h1>{mezcal.title}</h1>
+              <h1>{data.allSanityMezcalesPage.nodes[0].title}</h1>
               <BlockContent
-                  blocks={mezcal._rawTexto}
+                  blocks={data.allSanityMezcalesPage.nodes[0]._rawTexto}
               />
             </div>
           </div>
           <div 
-          style={{backgroundImage: `url(${mezcal.imageMezcal.asset.url})` }}
+          style={{backgroundImage: `url(${data.allSanityMezcalesPage.nodes[0].imageMezcal.asset.url})` }}
           className="de"></div>
         </MezcalContainer>
         <SliderMezcal />
         <Newsletter />
     </Layout>
-  );
+    )
 }
 
 
@@ -110,6 +130,12 @@ const MezcalContainer = styled.section`
             color: white;
           }
         }
+        &:first-child {
+            a {
+                background-color: var(--blue);
+                color: white;
+            }
+        }
       }
     }
     .texto {
@@ -140,32 +166,4 @@ const MezcalContainer = styled.section`
  `
 
 
-
-export const query = graphql`
-  query($slug: String!) {
-    links:   allSanityMezcalesPage {
-      nodes {
-        title
-        _key
-        slug {
-          current
-        }
-      }
-    }
-    mezcal: sanityMezcalesPage(slug: { current: { eq: $slug } }) {
-        title
-        _rawTexto
-        imageMezcal {
-        alt
-        asset {
-            gatsbyImageData(
-            layout: FULL_WIDTH
-            outputPixelDensities: 1.5
-            placeholder: BLURRED
-            )
-            url
-        }
-        }
-    }
-  }
-`;
+export default MezcalesPage

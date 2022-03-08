@@ -70,7 +70,7 @@ export const data = graphql`
 `;
 
 
-const IndexPage = ({data}) => {
+const NosotrosPage = ({data}) => {
   return(
     <Layout>
       <Hero data={data} />
@@ -81,4 +81,4 @@ const IndexPage = ({data}) => {
     </Layout>
   )
 }
-export default IndexPage
+export default NosotrosPage
