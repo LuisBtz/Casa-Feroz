@@ -12,6 +12,7 @@ import mezcal from './objects/mezcal'
 import carousel from './objects/carousel'
 import linkFooter from './objects/linkFooter'
 import socialLink from './objects/socialLink'
+import coctel from './objects/coctel'
 
 
 import carrusel from './documents/carrusel'
@@ -20,6 +21,7 @@ import ageVerification from './documents/ageVerification'
 import homePage from './documents/homePage'
 import aboutPage from './documents/aboutPage'
 import mezcalesPage from './documents/mezcalesPage'
+import mixologiaPage from './documents/mixologiaPage'
 
 
 export default createSchema({
@@ -35,6 +37,7 @@ export default createSchema({
     carousel,
     linkFooter,
     socialLink,
+    coctel,
 
     carrusel,
     settingsPage,
@@ -42,5 +45,6 @@ export default createSchema({
     homePage,
     aboutPage,
     mezcalesPage,
+    mixologiaPage
   ]),
 })

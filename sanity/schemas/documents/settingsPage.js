@@ -38,6 +38,11 @@ export default {
             type: 'imageType'
         },
         {
+            name: 'encuentranos',
+            title: 'Encuéntranos Link',
+            type: 'string'
+        },
+        {
             name: 'logoNegro',
             title: 'Logo Negro',
             type: 'imageType',

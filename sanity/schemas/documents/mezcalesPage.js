@@ -3,7 +3,7 @@ export default {
     name: 'mezcalesPage',
     title: 'Mezcales',
     type: 'document',
-    icon: () => `🍾`,
+    icon: () => `🥃`,
     fields: [
         {
             name: 'title',
