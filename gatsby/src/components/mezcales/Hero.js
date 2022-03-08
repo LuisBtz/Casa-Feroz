@@ -7,8 +7,10 @@ const Hero = () => {
         <HeroContainer>
             <div className="image">
                 <StaticImage 
-                src="mezcales.jpg" 
-                alt="Mezcales Casa Feroz" />
+                   style={{ height: '100%' }}
+                    src="mezcales.jpg" 
+                    alt="Mezcales Casa Feroz" 
+                />
             </div>
             <div className="text">
                 <h1>NUESTROS MEZCALES</h1>
@@ -18,10 +20,10 @@ const Hero = () => {
 }
 
 const HeroContainer = styled.section`
-    height: 100vh;
+    height: 100%;
     position: relative;
     .image {
-        height: 100%;
+        height: 100vh;
     }
     .text {
         position: absolute;
