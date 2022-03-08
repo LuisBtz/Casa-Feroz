@@ -69,7 +69,7 @@ const [clickHam, setClickHam] = useState(false);
                 </div>
                 <ul className={clickHam ? 'links show' : 'links'} onClick={() => setClickHam(!clickHam)}>
                     <li><Link to='/nosotros'>Nosotros</Link></li>
-                    <li><Link to='/'>Mezcales</Link></li>
+                    <li><Link to='/mezcales'>Mezcales</Link></li>
                     <li><Link to='/'>Mixologia</Link></li>
                     <li><Link to='/'>Encuentranos</Link></li>
                 </ul>
