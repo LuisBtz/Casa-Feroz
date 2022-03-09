@@ -35,7 +35,7 @@ const [clickHam, setClickHam] = useState(false);
         <HeroContainer>
             <div className="desk">
                 <ul className='links'>
-                    <li><Link to='nosotros'>Nosotros</Link></li>
+                    <li><Link to='/nosotros'>Nosotros</Link></li>
                     <li><Link to='/mezcales'>Mezcales</Link></li>
                     <li className="image">
                         <Link to='/'>

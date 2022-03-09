@@ -30,11 +30,43 @@ async function turnMezcalesIntoPages({graphql, actions}) {
   });
 }
 
+
+async function turnCoctelesIntoPages({graphql, actions}) {
+  // 1. Get a template for this page
+  const coctelTemplate = path.resolve('./src/templates/Coctel.js')
+  // 2. Query all artists
+  const {data} = await graphql(`
+      query {
+          cocteles: allSanityMixologiaPage {
+            nodes {
+              title
+              slug {
+                current
+              }
+            }
+          }
+      }
+  `);
+  // 3. Loop over each artist and create a page for each artist
+  data.cocteles.nodes.forEach((coctel) => {
+      actions.createPage({
+          // url forths new page
+          path: `/mixologia/${coctel.slug.current}`,
+          component: coctelTemplate,
+          context: {
+              language: 'es',
+              slug: coctel.slug.current,
+          }
+      })
+  });
+}
+
 exports.createPages = async (params) => {
 // Create Pages dynamically
     await Promise.all([
         // 1. Artists
         turnMezcalesIntoPages(params),
+        turnCoctelesIntoPages(params),
     ])
     
 }
