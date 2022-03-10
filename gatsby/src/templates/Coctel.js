@@ -5,6 +5,7 @@ import styled from "styled-components";
 import Hero from "../components/mixologia/Hero.js";
 import SliderMezcal from "../components/layout/sliderMezcal";
 import Newsletter from "../components/layout/newsletter";
+import Cocteles from "../components/mixologia/Cocteles";
 
 // markup
 export default function SingleMezcalPage({ data: { coctel, links } }) {
@@ -31,6 +32,7 @@ export default function SingleMezcalPage({ data: { coctel, links } }) {
               })}
             </ul>
         </MixologiaContainer>
+        <Cocteles data={coctel} />
         <SliderMezcal />
         <Newsletter />
     </Layout>
