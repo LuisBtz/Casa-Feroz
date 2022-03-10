@@ -1,5 +1,5 @@
+import React from 'react'
 import { graphql, Link } from "gatsby";
-import React from "react";
 import Layout from "../components/layout/layout";
 import styled from "styled-components";
 import Hero from "../components/mixologia/Hero.js";
@@ -7,37 +7,77 @@ import SliderMezcal from "../components/layout/sliderMezcal";
 import Newsletter from "../components/layout/newsletter";
 import Cocteles from "../components/mixologia/Cocteles";
 
-// markup
-export default function SingleMezcalPage({ data: { coctel, links } }) {
+export const data = graphql`
+  query {
+    links:   allSanityMixologiaPage {
+      nodes {
+        slug {
+          current
+        }
+        _key
+        title
+      }
+    }
+    coctel: sanityMixologiaPage {
+      title
+      subtitle
+      subtitleDescription
+      imagenPrincipal {
+        alt
+        asset {
+          url
+          gatsbyImageData(
+            layout: FULL_WIDTH
+            outputPixelDensities: 1.5
+            placeholder: BLURRED
+          )
+        }
+      }
+      cocteles {
+        _key
+        _rawTexto
+        name
+        imageCoctel {
+          asset {
+            url
+          }
+        }
+      }
+    }
+  }
+`;
 
-  const whiteHeader = true
+const MixologiaPage = ({data}) => {
+
+    const whiteHeader = true
 
 
-  return (
-    <Layout whiteHeader={whiteHeader}>
-        <Hero data={coctel}/>
-        <MixologiaContainer id='mixologia'>
-          <div className="texto">
-            <h2>{coctel.subtitle}</h2>
-            <p>{coctel.subtitleDescription}</p>
-          </div>
-            <ul className="links">
-              {links.nodes.map(({ _key, title, slug}) => {
-                  return (
-                      <li className='coctel' key={_key}>
-                        <Link
-                        activeClassName="active"
-                        to={`/mixologia/${slug.current}`} ><p>{title}<span></span></p></Link>
-                      </li>
-                  )
-              })}
-            </ul>
-        </MixologiaContainer>
-        <Cocteles data={coctel} />
-        <SliderMezcal />
-        <Newsletter />
-    </Layout>
-  );
+    return(
+
+        <Layout whiteHeader={whiteHeader} >
+            <Hero data={data.coctel}/>
+            <MixologiaContainer id='mixologia'>
+            <div className="texto">
+                <h2>{data.coctel.subtitle}</h2>
+                <p>{data.coctel.subtitleDescription}</p>
+            </div>
+                <ul className="links">
+                {data.links.nodes.map(({ _key, title, slug}) => {
+                    return (
+                        <li className='coctel' key={_key}>
+                            <Link
+                            activeClassName="active"
+                            to={`/mixologia/${slug.current}`} ><p>{title}<span></span></p></Link>
+                        </li>
+                    )
+                })}
+                </ul>
+            </MixologiaContainer>
+            <Cocteles data={data.coctel} />
+            <SliderMezcal />
+            <Newsletter />
+        </Layout>
+    )
 }
 
 
@@ -117,43 +157,4 @@ const MixologiaContainer = styled.section`
  `
 
 
-
-export const query = graphql`
-  query($slug: String!) {
-    links:   allSanityMixologiaPage {
-      nodes {
-        slug {
-          current
-        }
-        _key
-        title
-      }
-    }
-    coctel: sanityMixologiaPage(slug: { current: { eq: $slug } }) {
-      title
-      subtitle
-      subtitleDescription
-      imagenPrincipal {
-        alt
-        asset {
-          url
-          gatsbyImageData(
-            layout: FULL_WIDTH
-            outputPixelDensities: 1.5
-            placeholder: BLURRED
-          )
-        }
-      }
-      cocteles {
-        _key
-        _rawTexto
-        name
-        imageCoctel {
-          asset {
-            url
-          }
-        }
-      }
-    }
-  }
-`;
+export default MixologiaPage

@@ -32,7 +32,7 @@ const Cocteles = ({data}) => {
         infinite: true,
         slidesToShow: 1,
         slidesToScroll: 1,
-        autoplay: true,
+        autoplay: false,
         autoplaySpeed: 4000,
         pauseOnHover: false,
         waitForAnimate: true,

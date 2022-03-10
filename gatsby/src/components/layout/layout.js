@@ -7,7 +7,7 @@ import Footer from "./footer"
 
 
 
-function Layout({ children }) {
+function Layout({ children, whiteHeader }) {
 
   
   return (
@@ -15,7 +15,7 @@ function Layout({ children }) {
       <Normalizer />
       <Typography />
       <GlobalStyle />
-      <Header />
+      <Header whiteHeader={whiteHeader} />
       <main>{children}</main>
       <Footer />
     </>

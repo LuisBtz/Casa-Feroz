@@ -6,11 +6,22 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 
 
-const Header = () => {
+const Header = ( {whiteHeader}) => {
     const data = useStaticQuery(graphql`
 query {
     sanitySettingsPage {
+        encuentranos
         logoNegro {
+        alt
+        asset {
+            gatsbyImageData(
+            layout: FULL_WIDTH
+            outputPixelDensities: 1.5
+            placeholder: BLURRED
+            )
+        }
+        }
+        logoBlanco {
         alt
         asset {
             gatsbyImageData(
@@ -27,27 +38,38 @@ query {
 const logoGetDataImage = getImage(data.sanitySettingsPage.logoNegro.asset)
 const logoGetDataImageAlt = data.sanitySettingsPage.logoNegro.alt
 
+const logoGetDataImageBlanco = getImage(data.sanitySettingsPage.logoBlanco.asset)
+const logoGetDataImageAltBlanco = data.sanitySettingsPage.logoBlanco.alt
+
 
 const [clickHam, setClickHam] = useState(false);
 
 
     return(
         <HeroContainer>
-            <div className="desk">
+            <div className={whiteHeader ? 'desk whiteHeader' : 'desk'}>
                 <ul className='links'>
-                    <li><Link to='/nosotros'>Nosotros</Link></li>
-                    <li><Link to='/mezcales'>Mezcales</Link></li>
+                    <li><Link to='/nosotros' activeClassName="active">Nosotros</Link></li>
+                    <li><Link to='/mezcales' activeClassName="active">Mezcales</Link></li>
                     <li className="image">
                         <Link to='/'>
+                            {whiteHeader ? 
+                            <GatsbyImage
+                                style={{ height: "100%", width: "100%" }}
+                                image={logoGetDataImageBlanco}
+                                alt={logoGetDataImageAltBlanco}
+                            />  
+                            :
                             <GatsbyImage
                                 style={{ height: "100%", width: "100%" }}
                                 image={logoGetDataImage}
                                 alt={logoGetDataImageAlt}
-                            />
+                            />  
+                        }
                         </Link>
                     </li>
-                    <li><Link to='/'>Mixologia</Link></li>
-                    <li><Link to='/'>Encuentranos</Link></li>
+                    <li><Link to='/mixologia' activeClassName="active">Mixologia</Link></li>
+                    <li><a href={data.sanitySettingsPage.encuentranos} target='_blank' rel="noreferrer" activeClassName="active">Encuentranos</a></li>
                 </ul>
             </div>
             
@@ -68,10 +90,10 @@ const [clickHam, setClickHam] = useState(false);
                     </Link>
                 </div>
                 <ul className={clickHam ? 'links show' : 'links'} onClick={() => setClickHam(!clickHam)}>
-                    <li><Link to='/nosotros'>Nosotros</Link></li>
-                    <li><Link to='/mezcales'>Mezcales</Link></li>
-                    <li><Link to='/'>Mixologia</Link></li>
-                    <li><Link to='/'>Encuentranos</Link></li>
+                    <li><Link to='/nosotros' activeClassName="active">Nosotros</Link></li>
+                    <li><Link to='/mezcales' activeClassName="active">Mezcales</Link></li>
+                    <li><Link to='/mixologia' activeClassName="active">Mixologia</Link></li>
+                    <li><a href={data.sanitySettingsPage.encuentranos} target='_blank' rel="noreferrer">Encuentranos</a></li>
                 </ul>
             </div>
 
@@ -110,10 +132,14 @@ z-index: 1;
                 font-family: var(--bold);
                 text-transform: uppercase;
                 display: inline-block;
+                border-bottom: solid 1px transparent;
                 &:hover {
                     border-bottom: solid 1px black;
                 }
                 
+            }
+            a.active {
+                border-bottom: solid 1px black;
             }
         }
         li.image {
@@ -126,6 +152,24 @@ z-index: 1;
         }
     }
 
+}
+.whiteHeader {
+    a {
+        color: var(--beige);
+        &:hover {
+            border-bottom: solid 1px var(--beige) !important;
+        }
+    }
+    a.active {
+        border-bottom: solid 1px var(--beige) !important;
+    }
+    li.image {
+            a {
+                &:hover {
+                    border: none !important;
+                }
+            }
+        }
 }
 .movil {
     display: none;
