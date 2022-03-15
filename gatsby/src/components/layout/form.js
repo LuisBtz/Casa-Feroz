@@ -125,6 +125,9 @@ const FormContainer = styled.div`
   h2 {
     margin-bottom: 10px;
   }
+  p {
+    text-transform: uppercase;
+  }
   form {
     margin-top: 50px;
     input {
@@ -140,7 +143,7 @@ const FormContainer = styled.div`
     }
     button {
       color: var(--beige);
-      margin-top: 10px;
+      margin-top: 40px;
       border: solid 2px var(--beige);
       width: 100%;
       padding: 5px 10px;

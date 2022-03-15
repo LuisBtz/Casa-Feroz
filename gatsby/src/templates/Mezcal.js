@@ -25,7 +25,7 @@ export default function SingleMezcalPage({ data: { mezcal, links } }) {
                           color: "white",
                           backgroundColor: "var(--blue)"
                         }} 
-                        to={`/mezcales/${slug.current}`} >{title}</Link>
+                        to={`/mezcales/${slug.current}#mezcales`} >{title}</Link>
                       </li>
                   )
               })}
@@ -119,13 +119,16 @@ const MezcalContainer = styled.section`
       padding-bottom: 100px;
       p {
         padding: 10px 0;
+        text-transform: uppercase;
       }
       h2 {
         font-family: var(--bold);
+        text-transform: uppercase;
       }
       h1 {
         text-align: center;
         margin-bottom: 20px;
+        text-transform: uppercase;
       }
     }
 

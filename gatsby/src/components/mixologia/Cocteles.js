@@ -149,6 +149,7 @@ const MezcalContainer = styled.section`
       
       .mezcal {
         a {
+          text-transform: uppercase;
           border: solid 2px var(--blue);
           text-align: center;
           display: flex;
@@ -191,23 +192,28 @@ const MezcalContainer = styled.section`
             }
         }
       p {
+        text-transform: uppercase;
         padding: 10px 0;
       }
       h1 {
+        text-transform: uppercase;
           width: 300px;
           margin: 0 auto;
       }
       p {
+        text-transform: uppercase;
         width: 80%;
         margin: 0 auto;
         display: block;
         text-align: center;
       }
       h2, b, strong {
+        text-transform: uppercase;
         font-family: var(--bold);
         font-weight: normal;
       }
       h1 {
+        text-transform: uppercase;
         text-align: center;
         margin-bottom: 20px;
       }

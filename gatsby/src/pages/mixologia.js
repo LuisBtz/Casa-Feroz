@@ -91,6 +91,9 @@ const MixologiaContainer = styled.section`
   }
   .texto {
     margin-bottom: 50px;
+    p, a, h1, h2, h3 {
+      text-transform: uppercase;
+    }
   }
   .links {
     display: flex;
@@ -127,6 +130,7 @@ const MixologiaContainer = styled.section`
       display: block;
       width: 147px;
       position: relative;
+      text-transform: uppercase;
       &:hover {
         span {
           background-color: white;
@@ -143,11 +147,13 @@ const MixologiaContainer = styled.section`
         border: solid 1px white;
         border-radius: 50%;
         transition: all ease-in-out 250ms;
+        text-transform: uppercase;
       }
       p {
         font-family: var(--bold);
         text-transform: uppercase;
         padding-top: 30px;
+        text-transform: uppercase;
         @media (max-width: 800px) {
           font-size: 0.7rem;
         }
